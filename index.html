@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
 
   <style>
@@ -14,24 +14,27 @@
       background: #000;
       font-family: Arial, sans-serif;
       color: #fff;
+    }
+
+    body {
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
     }
 
-    /* Navigation menu (top-right, side-aligned) */
+    /* Top-right navigation */
     nav {
-      position: absolute;
+      position: absolute; /* take out of flex flow */
       top: 20px;
       right: 30px;
-      z-index: 2;
       font-family: Helvetica, Arial, sans-serif;
-      text-transform: uppercase; /* all caps */
       font-weight: bold;
+      text-transform: uppercase;
       letter-spacing: 1px;
-      opacity: 0; /* for fade-in */
+      opacity: 0;
       animation: fadeInNav 1.6s ease forwards;
+      z-index: 2;
     }
 
     nav a {
@@ -71,12 +74,12 @@
       100% { transform: translate(0,0); }
     }
 
-    /* Logo fade-in */
+    /* Logo */
     .logo {
       width: 200px;
       opacity: 0;
       animation: fadeIn 1.6s ease forwards;
-      position: relative;
+      position: relative; /* keeps it in flex center */
       z-index: 1;
     }
 
@@ -85,16 +88,16 @@
       to { opacity: 1; }
     }
 
-    /* Responsive tweaks */
     @media (max-width: 600px) {
       nav a { font-size: 0.9rem; margin-left: 15px; }
       .logo { width: 150px; }
     }
+
   </style>
 </head>
 
 <body>
-  <!-- Navigation (top-right) -->
+  <!-- Navigation -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -104,4 +107,5 @@
   <img src="three_creamwhite.png" alt="Logo" class="logo">
 </body>
 </html>
+
 
