@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title></title>
+  <title>Home</title>
 
   <style>
     html, body {
@@ -12,49 +12,86 @@
       height: 100%;
       overflow: hidden;
       background: #000;
+      font-family: Arial, sans-serif; /* fallback for body */
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
     }
 
+    /* Navigation menu */
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      z-index: 2;
+      font-family: Helvetica, Arial, sans-serif; /* Helvetica primary */
+      text-transform: uppercase; /* all caps */
+      font-weight: bold; /* bold */
+      letter-spacing: 1px; /* optional spacing */
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      opacity: 0.7;
+    }
+
     /* Grain overlay */
     body::after {
       content: "";
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 120%;
+      height: 120%;
       pointer-events: none;
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABkCAYAAAABnT2qAAAAH0lEQVQImWP8////fwY0wMjIyMDGAI0qg6QIDwEENBQUDkAEAvtIFlSUgfpAAAAAElFTkSuQmCC');
-      opacity: 0.08; /* adjust visibility */
-      background-repeat: repeat;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23f)'/%3E%3C/svg%3E");
+      opacity: 0.05;
       animation: moveGrain 15s linear infinite;
+      z-index: 0;
     }
 
     @keyframes moveGrain {
       0% { transform: translate(0,0); }
-      50% { transform: translate(-3%, -3%); }
+      50% { transform: translate(-5%, -5%); }
       100% { transform: translate(0,0); }
     }
 
-    /* Logo */
+    /* Logo fade-in */
     .logo {
       width: 200px;
       opacity: 0;
-      position: relative;
       animation: fadeIn 1.6s ease forwards;
+      position: relative;
+      z-index: 1;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      nav a { font-size: 0.9rem; margin-left: 15px; }
+      .logo { width: 150px; }
+    }
   </style>
 </head>
 
 <body>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <!-- Logo -->
   <img src="three_creamwhite.png" alt="Logo" class="logo">
 </body>
 </html>
